@@ -13,7 +13,6 @@ const generateToken = (user) => {
   );
 };
 
-// REGISTER
 exports.register = async (req, res) => {
   try {
     const { username, email, password, phoneNumber } = req.body;
@@ -48,7 +47,6 @@ exports.register = async (req, res) => {
   }
 };
 
-// LOGIN
 exports.login = async (req, res) => {
   try {
     const { email, password } = req.body;

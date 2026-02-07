@@ -2,6 +2,7 @@ const User = require('../models/User');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
+
 const generateToken = (user) => {
   return jwt.sign(
     {
@@ -28,7 +29,7 @@ exports.register = async (req, res) => {
       email,
       password: hashedPassword,
       phoneNumber,
-      role, // можно передать 'admin' при создании
+      role, 
     });
 
     const token = generateToken(user);

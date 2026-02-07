@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require('mongoose')
 
 const workoutSchema = new mongoose.Schema({
   user: {
@@ -22,9 +22,15 @@ const workoutSchema = new mongoose.Schema({
     enum: ['beginner', 'intermediate', 'advanced'],
     default: 'beginner'
   },
+  trainer: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Trainer', 
+    required: false 
+  },
   schedule: {
-    type: String
-  }
+    type: [String], 
+    default: []
+}
 }, { 
   timestamps: true 
 });

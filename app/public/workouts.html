@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>PinkFit 💖 Workouts</title>
+<style>
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #fff6fb;
+  color: #333;
+}
+
+header {
+  background: linear-gradient(135deg, #ff7eb9, #ffb3d9);
+  color: white;
+  text-align: center;
+  padding: 40px;
+}
+
+h1, h2, h3 {
+  color: #ff4f9a;
+}
+
+.container {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 20px;
+}
+
+.card {
+  background: white;
+  border-radius: 20px;
+  padding: 25px;
+  margin-bottom: 25px;
+  box-shadow: 0 10px 25px rgba(255, 126, 185, 0.25);
+}
+
+.exercise {
+  background: #ffe4f1;
+  border-radius: 14px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+button {
+  background: #ff7eb9;
+  border: none;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 14px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+button:hover {
+  background: #ff4f9a;
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>PinkFit 💖</h1>
+  <p>Choose a workout and add it to your plan 💕</p>
+</header>
+
+<div class="container" id="workoutsContainer">
+  <!-- Workout cards will appear here -->
+</div>
+
+<script>
+const exercisesList = [
+  {
+    name: "Squats",
+    muscleGroup: "Legs",
+    description: "Stand with feet shoulder-width apart, lower your body as if sitting back in a chair, then return to standing. Great for quads, hamstrings, and glutes.",
+    image: "https://cdn.pixabay.com/photo/2016/03/27/22/22/squats-1281371_1280.jpg"
+  },
+  {
+    name: "Lunges",
+    muscleGroup: "Legs",
+    description: "Step forward with one leg, lowering your hips until both knees are bent at about 90 degrees. Push back to starting position. Works quads, glutes, and hamstrings.",
+    image: "https://cdn.pixabay.com/photo/2017/08/10/03/37/lunges-2612879_1280.jpg"
+  },
+  {
+    name: "Calf Raises",
+    muscleGroup: "Legs",
+    description: "Stand tall, lift heels off the floor and squeeze calves, then lower slowly. Strengthens calves and improves balance.",
+    image: "https://cdn.pixabay.com/photo/2016/11/18/16/03/woman-1834885_1280.jpg"
+  },
+  {
+    name: "Push-ups",
+    muscleGroup: "Chest",
+    description: "Start in plank position, lower your chest to the floor, then push back up. Works chest, shoulders, triceps, and core.",
+    image: "https://cdn.pixabay.com/photo/2016/03/27/22/16/push-up-1281376_1280.jpg"
+  },
+  {
+    name: "Bench Press",
+    muscleGroup: "Chest",
+    description: "Lie on a bench, grip barbell shoulder-width, lower to chest, then push up. Strengthens chest, shoulders, and triceps.",
+    image: "https://cdn.pixabay.com/photo/2015/03/26/09/41/bench-690034_1280.jpg"
+  },
+  {
+    name: "Bicep Curls",
+    muscleGroup: "Arms",
+    description: "Hold dumbbells, curl them towards shoulders keeping elbows close. Strengthens biceps.",
+    image: "https://cdn.pixabay.com/photo/2016/11/21/16/57/bodybuilder-1840441_1280.jpg"
+  },
+  {
+    name: "Tricep Dips",
+    muscleGroup: "Arms",
+    description: "Place hands behind on a bench or chair, lower body bending elbows, then push up. Works triceps.",
+    image: "https://cdn.pixabay.com/photo/2017/08/10/03/37/dips-2612877_1280.jpg"
+  },
+  {
+    name: "Shoulder Press",
+    muscleGroup: "Shoulders",
+    description: "Press dumbbells from shoulders overhead, then lower slowly. Strengthens deltoids and triceps.",
+    image: "https://cdn.pixabay.com/photo/2017/03/04/01/03/weightlifting-2110502_1280.jpg"
+  },
+  {
+    name: "Lateral Raises",
+    muscleGroup: "Shoulders",
+    description: "Hold dumbbells by sides, lift arms sideways to shoulder height, then lower. Targets side delts.",
+    image: "https://cdn.pixabay.com/photo/2017/01/30/13/47/woman-2025910_1280.jpg"
+  },
+  {
+    name: "Plank",
+    muscleGroup: "Core",
+    description: "Hold a push-up position with elbows bent under shoulders and body straight. Engages core, glutes, and shoulders.",
+    image: "https://cdn.pixabay.com/photo/2017/09/05/22/26/fitness-2719437_1280.jpg"
+  },
+  {
+    name: "Crunches",
+    muscleGroup: "Core",
+    description: "Lie on your back, knees bent, lift shoulders towards knees. Strengthens upper abdominals.",
+    image: "https://cdn.pixabay.com/photo/2016/11/29/10/07/abdominal-exercise-1868754_1280.jpg"
+  },
+  {
+    name: "Russian Twists",
+    muscleGroup: "Core",
+    description: "Sit, lean back slightly, lift feet, rotate torso side to side holding weight. Strengthens obliques and core.",
+    image: "https://cdn.pixabay.com/photo/2017/08/10/03/37/exercise-2612875_1280.jpg"
+  },
+  {
+    name: "Burpees",
+    muscleGroup: "Full Body",
+    description: "From standing, squat, jump feet back into plank, push-up, jump feet forward, and jump up. Great cardio and full-body strength.",
+    image: "https://cdn.pixabay.com/photo/2016/03/27/22/22/burpee-1281372_1280.jpg"
+  },
+  {
+    name: "Mountain Climbers",
+    muscleGroup: "Full Body",
+    description: "From plank, alternate driving knees to chest quickly. Builds core strength and cardio endurance.",
+    image: "https://cdn.pixabay.com/photo/2016/03/27/22/22/mountain-climber-1281373_1280.jpg"
+  },
+  {
+    name: "Jumping Jacks",
+    muscleGroup: "Full Body",
+    description: "Jump legs apart and raise arms overhead, then return. Great warm-up and cardio.",
+    image: "https://cdn.pixabay.com/photo/2016/11/29/10/07/jumping-jacks-1868753_1280.jpg"
+  }
+]
+
+
+// 4 ready-made workouts using all exercises
+const readyWorkouts = [
+  {
+    id: "w1",
+    title: "Leg Day Blast",
+    level: "Beginner",
+    exercises: [exercisesList[0], exercisesList[1], exercisesList[2]]
+  },
+  {
+    id: "w2",
+    title: "Upper Body Strength",
+    level: "Intermediate",
+    exercises: [exercisesList[3], exercisesList[4], exercisesList[5], exercisesList[6]]
+  },
+  {
+    id: "w3",
+    title: "Core & Abs Power",
+    level: "Advanced",
+    exercises: [exercisesList[9], exercisesList[10], exercisesList[11]]
+  },
+  {
+    id: "w4",
+    title: "Full Body Cardio",
+    level: "Intermediate",
+    exercises: [exercisesList[12], exercisesList[13], exercisesList[14]]
+  }
+]
+
+// Render workout cards
+const container = document.getElementById("workoutsContainer")
+readyWorkouts.forEach(workout => {
+  const card = document.createElement("div")
+  card.classList.add("card")
+
+  const exercisesHTML = workout.exercises.map(ex => `
+    <div class="exercise">
+      <b>${ex.name}</b> (${ex.muscleGroup})<br>
+      ${ex.description}
+    </div>
+  `).join("")
+
+  card.innerHTML = `
+    <h3>${workout.title} (${workout.level})</h3>
+    <h4>Exercises:</h4>
+    ${exercisesHTML}
+    <button onclick="addWorkout('${workout.id}')">Add to My Plan 💖</button>
+  `
+  container.appendChild(card)
+})
+
+// Dummy function for adding to plan
+function addWorkout(id) {
+  alert(`Workout "${id}" added to your plan! 💕`)
+}
+</script>
+
+</body>
+</html>

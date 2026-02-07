@@ -1,0 +1,20 @@
+<ul id="exercises"></ul>
+
+<script src="auth.js"></script>
+<script>
+async function loadExercises() {
+  const res = await fetch(`${API_URL}/exercises`, {
+    headers: authHeaders()
+  });
+
+  const data = await res.json();
+
+  exercises.innerHTML = data.map(e => `
+    <li>
+      💪 <b>${e.name}</b> — ${e.muscleGroup}
+    </li>
+  `).join("");
+}
+
+loadExercises();
+</script>

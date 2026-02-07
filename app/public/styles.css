@@ -1,0 +1,303 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #fff;
+  color: #333;
+}
+
+/* HEADER */
+.header {
+  background: #ff69b4;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  color: white;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+nav a {
+  color: white;
+  margin-left: 20px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* HERO */
+.hero {
+  height: 80vh;
+  background: linear-gradient(135deg, #ffb6c1, #ff69b4);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 48px;
+}
+
+.hero p {
+  margin: 15px 0;
+}
+
+.btn {
+  background: white;
+  color: #ff69b4;
+  padding: 12px 30px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* SECTIONS */
+.section {
+  padding: 70px 40px;
+  text-align: center;
+}
+
+.section h2 {
+  color: #ff69b4;
+  margin-bottom: 30px;
+}
+
+.pink {
+  background: #fff0f5;
+}
+
+/* CARDS */
+.cards {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.card {
+  background: white;
+  padding: 30px;
+  width: 220px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(255,105,180,0.25);
+}
+
+/* FOOTER */
+footer {
+  background: #ff69b4;
+  color: white;
+  text-align: center;
+  padding: 15px;
+}
+
+/* AUTH (login / register) */
+.auth-body {
+  background: linear-gradient(135deg, #ffb6c1, #ff69b4);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.auth-box {
+  background: white;
+  padding: 40px;
+  width: 350px;
+  border-radius: 25px;
+  text-align: center;
+}
+
+.auth-box h2 {
+  color: #ff69b4;
+  margin-bottom: 20px;
+}
+
+.auth-box input,
+.auth-box select {
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 12px;
+  border-radius: 20px;
+  border: 1px solid #ffb6c1;
+}
+
+.auth-box button {
+  background: #ff69b4;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+/* PROFILE */
+.profile-card {
+  background: #ffe4ec;
+  padding: 30px;
+  max-width: 400px;
+  margin: auto;
+  border-radius: 20px;
+}
+.main-section {
+  padding: 40px;
+}
+
+.profile-card-section {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.profile-card {
+  background: #ffe4ec;
+  padding: 30px;
+  border-radius: 20px;
+  width: 300px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(255,105,180,0.25);
+}
+
+.profile-pic {
+  border-radius: 50%;
+  margin-bottom: 15px;
+  width: 100px;
+  height: 100px;
+}
+
+.profile-edit-form {
+  background: #fff0f5;
+  padding: 20px;
+  border-radius: 15px;
+  width: 300px;
+}
+
+.profile-edit-form.hidden {
+  display: none;
+}
+
+.cards-section {
+  margin-top: 40px;
+}
+
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.cards-container .card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 15px;
+  width: 250px;
+  box-shadow: 0 8px 20px rgba(255,105,180,0.2);
+}
+/* Layout */
+.profile-page {
+    display: flex;
+    background-color: #fff9fb; /* Легкий розовый оттенок */
+    min-height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 320px;
+    background: white;
+    border-right: 1px solid #ffe4ed;
+    padding: 110px 30px 40px;
+    position: fixed;
+    height: 100vh;
+}
+
+.user-info-box {
+    margin-top: 30px;
+    padding: 20px;
+    background: #fff0f5;
+    border-radius: 15px;
+    font-size: 14px;
+}
+
+.user-info-box p { margin-bottom: 10px; color: #555; }
+.user-info-box strong { color: #ff69b4; }
+
+/* Main Content */
+.main-content {
+    margin-left: 320px;
+    padding: 120px 60px 60px;
+    width: 100%;
+}
+
+.section-label {
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #b1b1b1;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+}
+
+/* Workout Blocks */
+.workout-block {
+    background: white;
+    border-radius: 20px;
+    padding: 25px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(255, 105, 180, 0.05);
+}
+
+.workout-title {
+    color: #ff69b4;
+    font-size: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.level-tag {
+    font-size: 11px;
+    background: #ffe4ed;
+    padding: 4px 10px;
+    border-radius: 10px;
+    text-transform: uppercase;
+}
+
+/* Exercise Cards (Inside Workout) */
+.exercises-sub-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.exercise-mini-card {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    background: #fafafa;
+    border-radius: 12px;
+    border: 1px solid #f0f0f0;
+}
+
+.ex-emoji { font-size: 20px; margin-right: 12px; }
+.ex-details strong { display: block; font-size: 14px; }
+.ex-details span { font-size: 12px; color: #999; }
+
+.empty-state {
+    text-align: center;
+    padding: 50px;
+    color: #999;
+    border: 2px dashed #ffe4ed;
+    border-radius: 20px;
+}

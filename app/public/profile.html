@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>PinkPower | Личный кабинет</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="profile-page">
+
+<header class="header">
+  <div class="logo">PinkPower 💗</div>
+  <nav>
+    <a href="index.html">Главная</a>
+    <a href="exercises.html">Библиотека упражнений</a>
+    <a href="#" onclick="logout()" class="logout-btn">Выйти</a>
+  </nav>
+</header>
+
+<aside class="sidebar">
+  <div class="profile-intro">
+    <div class="avatar-container">
+      <img src="https://via.placeholder.com/130/ff69b4/ffffff?text=Pink" class="profile-pic" alt="Avatar">
+      <button class="btn-add-profile">+</button>
+    </div>
+    <h2 class="username-title" id="userName">Загрузка...</h2>
+    <p class="user-role" id="userRole">loading...</p>
+  </div>
+
+  <div class="user-info-box">
+    <p><strong>Email:</strong> <span id="userEmail">-</span></p>
+    <p><strong>Телефон:</strong> <span id="userPhone">-</span></p>
+  </div>
+</aside>
+
+<main class="main-content">
+  <h3 class="section-label">Мои выбранные тренировки и упражнения</h3>
+  
+  <div id="workoutsContainer" class="workouts-list">
+    <p class="loading-text">Ищем ваши упражнения... ✨</p>
+  </div>
+</main>
+
+<script>
+    // 1. Функция заголовков
+    const getAuthHeaders = () => {
+        const token = localStorage.getItem('token');
+        return {
+            'Authorization': token, 
+            'Content-Type': 'application/json'
+        };
+    };
+
+    // 2. Загрузка инфо пользователя
+    async function loadUserInfo() {
+        try {
+            const res = await fetch('http://localhost:5000/api/profile', { 
+                headers: getAuthHeaders() 
+            });
+
+            if (!res.ok) {
+                console.log("Ошибка сервера:", res.status);
+                // Если сервер говорит "нельзя", раскомментируй строку ниже:
+                // window.location.href = 'login.html'; 
+                return;
+            }
+
+            const user = await res.json();
+            
+            if(document.getElementById('userName')) document.getElementById('userName').innerText = user.username;
+            if(document.getElementById('userEmail')) document.getElementById('userEmail').innerText = user.email;
+            if(document.getElementById('userPhone')) document.getElementById('userPhone').innerText = user.phoneNumber || 'Не указан';
+            if(document.getElementById('userRole')) document.getElementById('userRole').innerText = user.role;
+            
+        } catch (err) {
+            console.error("Ошибка сети:", err);
+        }
+    }
+
+    // 3. Обработчики кнопок
+    function toggleEditForm() {
+        alert("Здесь будет форма редактирования твоего Pink-профиля! 💗");
+    }
+
+    function logout() {
+        localStorage.removeItem('token');
+        window.location.href = 'login.html';
+    }
+
+    // 4. Запуск при старте
+    document.addEventListener('DOMContentLoaded', () => {
+        const token = localStorage.getItem('token');
+        if (!token) {
+            window.location.href = 'login.html';
+        } else {
+            loadUserInfo();
+        }
+    });
+  </script>
+</script>
+</body>
+</html>
